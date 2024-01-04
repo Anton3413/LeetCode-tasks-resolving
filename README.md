@@ -1,0 +1,1 @@
+This is an educational project for solving problems from LeetCode. To test the amount of memory used and execution time (Big O notation), some problems have several solutions to find the most optimal.
