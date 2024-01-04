@@ -710,7 +710,7 @@ public class ArraysAndStrings {
     }
 
 
-    //////// 2108. Find First Palindromic String in the Array
+    ////////// 2108. Find First Palindromic String in the Array
 
     public static String firstPalindrome(String[] words) {
 
