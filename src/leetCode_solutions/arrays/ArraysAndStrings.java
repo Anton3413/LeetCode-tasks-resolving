@@ -10,8 +10,13 @@ public class ArraysAndStrings {
         Integer[] array4 = {-6,2,5,-2,-7,-1,3};
         int[] array5 = {4,5,6,7,8,9};
         int[] array6 = {5,5,5};
-        System.out.println(maximizeSum(array6,2));
+      //  System.out.println(maximizeSum(array6,2));
+       // System.out.println(Arrays.toString(numberGame(new int[]{5,4,2,3})));
+       // System.out.println(100/10);
+
+       // System.out.println(Arrays.toString(separateDigits2(new int[]{13,25,83,77})));
         String[] strArray = {"hello how are you","qwe eqwf ceqcvw qewdf qfqf qq","32e wjcencv cewwe"};
+        System.out.println(findDifference(new int[]{1,2,3},new int[]{2,4,6}));
       //  System.out.println(Arrays.toString(decompressRLElist2(new int[]{1,2,3,4})));
         //  System.out.println(arithmeticTriplets2(array5,2));
        // System.out.println((char) ('a'+4));
@@ -722,4 +727,68 @@ public class ArraysAndStrings {
         }
         return "";
     }
+    /////2974. Minimum Number Game
+
+
+    public  static int[] numberGame(int[] nums) {
+
+        int[] arr = new int[nums.length];
+
+        Arrays.sort(nums);
+
+        for(int i = 0;i<nums.length-1;i+=2){
+            arr[i] = nums[i+1];
+            arr[i+1] = nums[i];
+        }
+        return arr;
+    }
+
+    ///////2553. Separate the Digits in an Array
+
+    public  static int[] separateDigits(int[] nums) {
+
+    StringBuilder builder = new StringBuilder();
+
+    for(int i: nums){
+        builder.append(i);
+    }
+
+    String str = builder.toString();
+
+    int[] result = new int[str.length()];
+
+
+    for(int i = 0; i<result.length;i++){
+        result[i] = str.charAt(i)-'0';
+    }
+
+    return result;
+    }
+
+    ///2215. Find the Difference of Two Arrays
+
+    public static List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
+
+        ArrayList<List<Integer>> result = new ArrayList<>();
+
+        result.add(new ArrayList<>());
+        result.add(new ArrayList<>());
+
+        Set<Integer> set1 = new HashSet<>();
+        Set<Integer> set2 = new HashSet<>();
+
+        for(int i = 0; i<nums1.length;i++){
+            set1.add(nums1[i]);
+            set2.add(nums2[i]);
+        }
+
+        for(int num : set1){
+            if(!set2.contains(num)){ result.get(0).add(num); }
+        }
+        for(int num : set2){
+            if(!set1.contains(num)){ result.get(1).add(num); }
+        }
+        return result;
+    }
+
 }
