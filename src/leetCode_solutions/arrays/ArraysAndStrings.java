@@ -791,4 +791,62 @@ public class ArraysAndStrings {
         return result;
     }
 
+    ////1979. Find Greatest Common Divisor of Array
+    ////Euclidean
+
+    public static int findGCD(int[] nums) {
+
+        int maxValue = Integer.MIN_VALUE;
+        int minValue = Integer.MAX_VALUE;
+
+        for(int i : nums){
+            if(i > maxValue){
+                maxValue = i;
+            }
+            if(i<minValue){
+                minValue = i;
+            }
+        }
+
+        maxValue = Math.abs(maxValue);
+        minValue = Math.abs(minValue);
+
+        int r = maxValue % minValue;
+
+        while( r!= 0){
+            maxValue = minValue;
+            minValue = r;
+            r = maxValue % minValue;
+        }
+        return minValue;
+    }
+
+    ////2185. Counting Words With a Given Prefix
+
+    public static int prefixCount(String[] words, String pref) {
+        int prefixCount = 0;
+
+        for(String word : words){
+            if(word.startsWith(pref)){
+                prefixCount++;
+            }
+        }
+        return prefixCount;
+    }
+
+    ////1351. Count Negative Numbers in a Sorted Matrix
+
+    public static int countNegatives(int[][] grid) {
+
+        int negativesCount = 0;
+
+        for(int i = 0; i<grid.length;i++){
+            for(int j = 0; j<grid[i].length;j++){
+                if(grid[i][j]<0){
+                    negativesCount++;
+                }
+            }
+        }
+        return negativesCount;
+    }
 }
